@@ -71,3 +71,29 @@ Statue printSqList_Value(SqList *L,int i){
 	return OK;
 
 }//printSqList_Value
+
+
+
+//print allvalue of SqList
+Statue printAllSqList_Value(SqList *L){
+	int i=0;
+	for(i=1;i<=L->length;i++)
+		printf("%d,",(*L).elem[i-1]);
+	return OK;
+}
+
+
+
+// Statue DeleteK(SqList *L,int i, int k){
+//delete element form i to k  @ k form i+1
+	// if(i>0 && i<=L->length && k>=0 && k<=L->length-i){
+			// int j=0;
+			// for(j=i;j<=L->length-k-i;j++)
+				// (*L).elem[j]=(*L).elem[j+k];
+			// L->length-=k;
+		// return OK;
+	// }else{
+		// printf("ERROR i value or k value");
+		// return ERROR;
+	// }
+// }//DeleteK

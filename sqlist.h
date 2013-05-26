@@ -22,3 +22,10 @@ Statue ListDelete_Sq(SqList *L,int i,ElemType e);
 //print value of SqList , the index is i
 Statue printSqList_Value(SqList *L,int i);
 
+
+//print allvalue of SqList
+Statue printAllSqList_Value(SqList *L);
+
+//delete element form i to k  @ k form i+1
+Statue DeleteK(SqList *L,int i, int k);
+
