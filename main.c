@@ -33,7 +33,7 @@ int main(){
 	// printSqList_Value(L,3);
 	
 	//dele element from L 3 4 5
-	//DeleteK(L,2,3);
+	DeleteK(L,2,2);
 	
 	//print all elements from L
 	printAllSqList_Value(L);
