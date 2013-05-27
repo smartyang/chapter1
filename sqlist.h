@@ -29,3 +29,8 @@ Statue printAllSqList_Value(SqList *L);
 //delete element form i to k  @ k form i+1
 Statue DeleteK(SqList *L,int i, int k);
 
+//insert element e in L by origin order
+Statue InsertByOrder(SqList *L,ElemType e);
+
+//intersect of A & B =C
+Statue IntersectOfSqList(SqList *A,SqList *B,SqList *C);

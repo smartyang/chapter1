@@ -73,15 +73,13 @@ Statue printSqList_Value(SqList *L,int i){
 }//printSqList_Value
 
 
-
-//print allvalue of SqList
 Statue printAllSqList_Value(SqList *L){
-	int i=0;
-	for(i=1;i<=L->length;i++)
-		printf("%d,",(*L).elem[i-1]);
+	int i=0;	
+	for(i=0;i<L->length;i++)
+		printf( "%d\n",(*L).elem[i] );
+	
 	return OK;
 }
-
 
 
 Statue DeleteK(SqList *L,int i, int k){
@@ -97,3 +95,34 @@ Statue DeleteK(SqList *L,int i, int k){
 		return ERROR;
 	 }
 }//DeleteK
+
+
+
+
+Statue InsertByOrder(SqList *L,ElemType e){
+//insert element e in L by order
+	int i=1;
+	while( (*L).elem[i-1]<e && i<=L->length )
+		i++;
+	ListInsert_Sq(L,i,e);
+	return OK;
+}
+
+
+Statue IntersectOfSqList(SqList *A,SqList *B,SqList *C){
+//intersect of A and B = C	
+	int i=1;
+	int j=1;
+	int k=0;
+	for(i=1;i<=A->length;i++){
+		for(j=1;j<=B->length;j++){
+			if( (*A).elem[i-1]==(*B).elem[j-1] )
+				(*C).elem[k] = (*A).elem[i-1];
+		}
+	}
+
+	return OK;
+}
+
+
+
