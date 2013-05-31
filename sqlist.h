@@ -34,3 +34,19 @@ Statue InsertByOrder(SqList *L,ElemType e);
 
 //intersect of A & B =C
 Statue IntersectOfSqList(SqList *A,SqList *B,SqList *C);
+
+//A not in A&B
+Statue DivOfSqList(SqList *A,SqList *B,SqList *C);
+
+
+//just void or not
+Statue IsSqListVoid(SqList *A);
+
+//compare relation with a and b
+Statue CompareAwithB(SqList *A,SqList *B);
+
+//Merge SqList if its full
+Statue MergeSqList(SqList *A);
+
+//Trans the order of the matrix
+Statue TransSqList(SqList *L);

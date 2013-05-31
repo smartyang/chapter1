@@ -50,8 +50,8 @@ Statue ListDelete_Sq(SqList *L,int i,ElemType e){
 		for(start=i;start<=L->length;start++)
 			(L->elem)[start-1]=(L->elem)[start];
 		
-		e=(L->elem)[start-1];
-		printf("dele value %d\n",e);
+		e=(L->elem)[i-1];
+		//printf("dele value %d\n",e);
 		
 		L->length--;
 		return OK;
@@ -79,7 +79,7 @@ Statue printAllSqList_Value(SqList *L){
 		printf( "%d\n",(*L).elem[i] );
 	
 	return OK;
-}
+}//printAllSqList_Value
 
 
 Statue DeleteK(SqList *L,int i, int k){
@@ -113,11 +113,11 @@ Statue IntersectOfSqList(SqList *A,SqList *B,SqList *C){
 //intersect of A and B = C	
 	int i=1;
 	int j=1;
-	int k=0;
+//	int k=0;
 	for(i=1;i<=A->length;i++){
 		for(j=1;j<=B->length;j++){
 			if( (*A).elem[i-1]==(*B).elem[j-1] )
-				(*C).elem[k] = (*A).elem[i-1];
+				(*C).elem[ C->length++ ] = (*A).elem[i-1];
 		}
 	}
 
@@ -125,4 +125,115 @@ Statue IntersectOfSqList(SqList *A,SqList *B,SqList *C){
 }
 
 
+Statue DivOfSqList(SqList *A,SqList *unionList,SqList *C){
+	//div fo SqList
+	int flag=0;
+	
+	int i=0;
+	
+	int j=0;
+	
+	for(i=1;i<=A->length;i++){
+		for(j=1;j<=unionList->length;j++){
+			if( (*A).elem[i-1]==(*unionList).elem[j-1] ){
+				flag=1;
+				}
+		}	
+		if(flag==0)
+			(*C).elem[C->length++]=(*A).elem[i-1];
+		flag=0;
+	}
+		
+	return OK;
 
+}//DivOfSqList
+
+
+
+Statue IsSqListVoid(SqList *A){
+//just SqList A if void return 0; if not void return 1;
+	if(A->length==0)
+		return 0;
+	else
+	 	return 1;
+}//IsSqListVoid
+
+
+Statue CompareAwithB(SqList *A,SqList *B){
+//just A and  equal return 0, a>b return 1, a<b return 2
+	SqList *C=(SqList *)malloc(sizeof(SqList));
+	InitList_Sq(C);
+	IntersectOfSqList(A,B,C);		
+	
+	SqList *leftA=(SqList *)malloc(sizeof(SqList));
+	InitList_Sq(leftA);	
+	
+	SqList *leftB=(SqList *)malloc(sizeof(SqList));
+	InitList_Sq(leftB);
+
+	DivOfSqList(A,C,leftA);	
+	DivOfSqList(A,B,leftB);
+
+	if(IsSqListVoid(leftA)==0 && IsSqListVoid(leftB)==0 ){
+		printf("a=b\n");
+		return 0;
+	}
+		
+	if( (*leftA).elem[0]>(*leftB).elem[0] ){
+		printf("a>b\n");
+		return 1;
+	}
+		
+		
+	if( (*leftA).elem[0]<(*leftB).elem[0] ){
+		printf("a<b\n");
+		return 2;
+
+	}
+	else{
+		printf("ERROR\n");
+		return ERROR;
+	}
+}//CompareAwithB
+
+
+
+
+Statue MergeSqList(SqList *A){
+//MergeSqList  
+	int i=0;
+	int j=0;
+	for (i=1;i<=A->length;i++){
+		for(j=i+1;j<=A->length;j++){
+			if( (*A).elem[i-1] == (*A).elem[j-1] ){
+				printf("node %d\n",(*A).elem[i-1]);
+				int e=0;
+				ListDelete_Sq(A,j,e);
+			//	printf("length %d\n",A->length);
+				j--;
+			}	
+		}
+		//printf("%s\n","time");
+	}
+	
+	return OK;
+}//MergeSqList
+
+
+
+Statue TransSqList(SqList *L){
+//TransSqList
+	int temp=0;
+	int index=1;
+	for(index=1;index<=(L->length)/2;index++){
+		temp=(*L).elem[index-1];
+
+		(*L).elem[index-1]=(*L).elem[L->length-index];
+
+		(*L).elem[L->length-index]=temp;
+
+	}
+	
+	return OK;
+
+}//TransSqList
