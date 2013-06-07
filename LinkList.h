@@ -17,3 +17,12 @@ LinkList InsertInLinkList(LinkList L,int i, int value);
 //dele element i in LinkList
 LinkList DeleteLinkList(LinkList L,int i);
 
+//locate i in LinkList L
+int LinkLocItem(LinkList L,int i);
+
+//the length of LinkList without the head point 
+int LenOfLinkList(LinkList L);
+
+//combine two LinkList return pointer hc as the head pointer
+LinkList CombineTwoLinkList(LinkList a,LinkList b);
+

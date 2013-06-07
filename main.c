@@ -235,6 +235,40 @@ void test_DeleteInLinkList(){
 	PrintValueInLinkList(link);
 }
 
+
+
+void test_LinkLocItem(){
+	LinkList link;
+	link=CreateLinkListFromLast(link,3);
+	PrintValueInLinkList(link);
+	printf("-------\n");	
+	int value=LinkLocItem(link,2);
+	printf("value = %d",value);
+}
+
+void test_LenOfLinkList(){
+	LinkList link;
+	link=CreateLinkListFromLast(link,5);
+	PrintValueInLinkList(link);
+	int length=LenOfLinkList(link);
+	printf("length = %d",length);
+}
+
+void test_CombineTwoLinkList(){
+	LinkList link1;
+	link1=CreateLinkListFromLast(link1,3);
+	PrintValueInLinkList(link1);
+	
+	LinkList link2;
+	link2=CreateLinkListFromLast(link2,3);
+	PrintValueInLinkList(link2);
+	
+	printf("-------\n");	
+	LinkList link3=CombineTwoLinkList(link1,link2);
+	PrintValueInLinkList(link3);
+}
+
+
 int main(){
 	
 	//test_compare();
@@ -244,9 +278,11 @@ int main(){
 	//test_CreateLinkList();
 	
 	//test_InsertInLinkList();	
-	test_DeleteInLinkList();
-
-
+	//test_DeleteInLinkList();
+	//test_LinkLocItem();
+	//test_LenOfLinkList();
+	test_CombineTwoLinkList();
+	
 	return OK;
 }
 
